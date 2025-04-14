@@ -1,5 +1,10 @@
 pluginManagement {
     repositories {
+        maven("https://maven.aliyun.com/repository/public")
+        maven("https://maven.aliyun.com/repository/google")
+        maven ("https://jitpack.io")
+        maven ("https://artifact.bytedance.com/repository/releases/")
+
         google {
             content {
                 includeGroupByRegex("com\\.android.*")
@@ -14,6 +19,11 @@ pluginManagement {
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
+        maven("https://maven.aliyun.com/repository/public")
+        maven("https://maven.aliyun.com/repository/google")
+        maven ("https://jitpack.io")
+        maven ("https://artifact.bytedance.com/repository/releases/")
+        
         google()
         mavenCentral()
     }
@@ -21,4 +31,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "WanAndroidCompose"
 include(":app")
+include(":lib_base")
  
