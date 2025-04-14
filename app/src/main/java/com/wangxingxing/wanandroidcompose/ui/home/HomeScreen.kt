@@ -1,10 +1,10 @@
-package com.wangxingxing.wanandroidcompose.feature.home
+package com.wangxingxing.wanandroidcompose.ui.home
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.wangxingxing.wanandroidcompose.core.designsystem.theme.WanAndroidComposeTheme
+import com.wangxingxing.wanandroidcompose.ui.theme.WanAndroidComposeTheme
 
 /**
  * author : 王星星

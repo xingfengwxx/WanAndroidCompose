@@ -1,4 +1,4 @@
-package com.wangxingxing.wanandroidcompose.feature.home.state
+package com.wangxingxing.wanandroidcompose.ui.home.state
 
 import com.wangxingxing.wanandroidcompose.data.model.User
 

@@ -1,4 +1,4 @@
-package com.wangxingxing.wanandroidcompose.core.designsystem.theme
+package com.wangxingxing.wanandroidcompose.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

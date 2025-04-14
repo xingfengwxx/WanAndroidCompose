@@ -1,4 +1,4 @@
-package com.wangxingxing.wanandroidcompose.core.designsystem.theme
+package com.wangxingxing.wanandroidcompose.ui.theme
 
 import android.app.Activity
 import android.os.Build

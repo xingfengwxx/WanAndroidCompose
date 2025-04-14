@@ -1,10 +1,11 @@
-package com.wangxingxing.wanandroidcompose.feature.home
+package com.wangxingxing.wanandroidcompose.ui.home
 
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.wangxingxing.wanandroidcompose.feature.home.state.HomeUiState
+import com.wangxingxing.wanandroidcompose.ui.home.state.HomeUiState
 import kotlinx.coroutines.launch
 
 /**
@@ -17,7 +18,7 @@ import kotlinx.coroutines.launch
 // 状态管理示例
 class HomeViewModel : ViewModel() {
     private val _uiState = mutableStateOf(HomeUiState())
-    val uiState: MutableState<HomeUiState> = _uiState
+    val uiState: State<HomeUiState> = _uiState
 
     fun loadData() {
         viewModelScope.launch {

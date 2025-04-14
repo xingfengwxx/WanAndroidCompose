@@ -8,12 +8,12 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
-import com.wangxingxing.wanandroidcompose.core.designsystem.theme.WanAndroidComposeTheme
-import com.wangxingxing.wanandroidcompose.feature.home.HomeScreen
+import com.wangxingxing.wanandroidcompose.ui.theme.WanAndroidComposeTheme
+import com.wangxingxing.wanandroidcompose.ui.home.HomeScreen
 
 /**
  * author : 王星星
- * date : 2025/4/8 14:43
+ * date : 2025/4/8 16:00
  * email : 1099420259@qq.com
  * description :
  */
