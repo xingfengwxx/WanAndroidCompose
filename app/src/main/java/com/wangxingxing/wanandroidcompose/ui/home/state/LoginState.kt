@@ -1,6 +1,6 @@
 package com.wangxingxing.wanandroidcompose.ui.home.state
 
-import com.wangxingxing.wanandroidcompose.data.model.User
+import com.wangxingxing.wanandroidcompose.data.bean.User
 
 /**
  * author : 王星星

@@ -73,6 +73,7 @@ dependencies {
     api(libs.androidx.runtime.livedata)
     api(libs.androidx.navigation.compose)
 
+    api(libs.utilcodex)
     api(libs.mmkv)
     api(libs.retrofit)
     api(libs.converter.gson)

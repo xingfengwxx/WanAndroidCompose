@@ -11,7 +11,7 @@ import android.os.Build
 object AppUtil {
 
     /** 获取版本号名称 */
-    fun getAppVersionName(context: Context): String {
+    fun getAppVersionName(context: Context): String? {
         val packageInfo =
             context.applicationContext.packageManager.getPackageInfo(context.packageName, 0)
         return packageInfo.versionName

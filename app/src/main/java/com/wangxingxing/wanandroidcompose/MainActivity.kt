@@ -10,6 +10,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import com.wangxingxing.wanandroidcompose.ui.theme.WanAndroidComposeTheme
 import com.wangxingxing.wanandroidcompose.ui.home.HomeScreen
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * author : 王星星
@@ -17,6 +18,7 @@ import com.wangxingxing.wanandroidcompose.ui.home.HomeScreen
  * email : 1099420259@qq.com
  * description :
  */
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

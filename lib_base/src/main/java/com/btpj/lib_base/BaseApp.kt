@@ -5,6 +5,7 @@ import android.content.Context
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStore
 import androidx.lifecycle.ViewModelStoreOwner
+import com.blankj.utilcode.util.Utils
 import com.btpj.lib_base.base.BaseAppViewModel
 import com.tencent.mmkv.MMKV
 import kotlin.properties.Delegates
