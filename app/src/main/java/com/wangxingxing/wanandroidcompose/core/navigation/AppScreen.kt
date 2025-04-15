@@ -23,5 +23,5 @@ fun AppScreen(
     val window = LocalActivity.current?.window
     val showSplash = appScreenViewModel.isFirstUse.collectAsState()
 
-    SplashScreen()
+    SplashScreen(navHostController)
 }
