@@ -17,11 +17,10 @@ import com.wangxingxing.wanandroidcompose.ui.splash.SplashScreen
  */
 @Composable
 fun AppScreen(
-    navHostController: NavHostController,
     appScreenViewModel: AppScreenViewModel = hiltViewModel()
 ) {
     val window = LocalActivity.current?.window
     val showSplash = appScreenViewModel.isFirstUse.collectAsState()
 
-    SplashScreen(navHostController)
+    SplashScreen()
 }

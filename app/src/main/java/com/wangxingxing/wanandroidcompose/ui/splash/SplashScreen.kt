@@ -8,6 +8,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.airbnb.lottie.compose.LottieAnimation
@@ -15,6 +16,7 @@ import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.wangxingxing.wanandroidcompose.R
+import com.wangxingxing.wanandroidcompose.core.navigation.LocalNavController
 import com.wangxingxing.wanandroidcompose.core.navigation.Route
 
 /**
@@ -25,9 +27,10 @@ import com.wangxingxing.wanandroidcompose.core.navigation.Route
  */
 @Composable
 fun SplashScreen(
-    navHostController: NavHostController,
     modifier: Modifier = Modifier
 ) {
+    val navHostController = LocalNavController.current // 隐式获取 NavHostController
+
     // 加载 Lottie 动画
     val composition by rememberLottieComposition(
         spec = LottieCompositionSpec.RawRes(R.raw.anim_splash)
@@ -37,7 +40,8 @@ fun SplashScreen(
     val progress by animateLottieCompositionAsState(
         composition = composition,
         iterations = 1, // 只播放一次
-        isPlaying = true
+        isPlaying = true,
+        speed = 2f
     )
 
     // 监听动画是否结束

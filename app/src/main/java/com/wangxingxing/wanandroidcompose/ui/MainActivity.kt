@@ -23,8 +23,6 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : BaseActivity() {
 
-    private lateinit var navHostController: NavHostController
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -32,8 +30,7 @@ class MainActivity : BaseActivity() {
         setContent {
             WanAndroidComposeTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    navHostController = rememberNavController()
-                    NavGraph(navHostController, innerPadding)
+                    NavGraph(innerPadding)
                 }
 
             }
