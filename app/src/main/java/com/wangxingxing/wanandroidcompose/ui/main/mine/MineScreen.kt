@@ -1,11 +1,9 @@
-package com.wangxingxing.wanandroidcompose.ui.home
+package com.wangxingxing.wanandroidcompose.ui.main.project
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.NavHostController
 import com.wangxingxing.wanandroidcompose.ui.theme.WanAndroidComposeTheme
 
 /**
@@ -15,21 +13,19 @@ import com.wangxingxing.wanandroidcompose.ui.theme.WanAndroidComposeTheme
  * description :
  */
 @Composable
-fun HomeScreen(
-    navHostController: NavHostController,
-    name: String,
+fun MineScreen(
     modifier: Modifier = Modifier
 ) {
     Text(
-        text = "Hello $name!",
+        text = "Mine",
         modifier = modifier
     )
 }
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun MineScreenPreview() {
     WanAndroidComposeTheme {
-        HomeScreen(navHostController = NavHostController(LocalContext.current), name ="Android")
+        MineScreen()
     }
 }

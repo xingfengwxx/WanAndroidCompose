@@ -1,11 +1,11 @@
-package com.wangxingxing.wanandroidcompose.ui.home
+package com.wangxingxing.wanandroidcompose.ui.main.home
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.wangxingxing.wanandroidcompose.ui.home.state.HomeUiState
+import com.wangxingxing.wanandroidcompose.ui.main.home.state.HomeUiState
 import kotlinx.coroutines.launch
 
 /**

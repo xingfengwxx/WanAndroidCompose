@@ -13,8 +13,12 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.btpj.lib_base.ext.navigate
-import com.wangxingxing.wanandroidcompose.ui.home.HomeScreen
+import com.wangxingxing.wanandroidcompose.ui.main.home.HomeScreen
 import com.wangxingxing.wanandroidcompose.ui.main.MainScreen
+import com.wangxingxing.wanandroidcompose.ui.main.project.MineScreen
+import com.wangxingxing.wanandroidcompose.ui.main.project.ProjectScreen
+import com.wangxingxing.wanandroidcompose.ui.main.project.SquareScreen
+import com.wangxingxing.wanandroidcompose.ui.main.project.WechatScreen
 import com.wangxingxing.wanandroidcompose.ui.splash.SplashScreen
 
 /**
@@ -35,7 +39,19 @@ fun NavGraph(paddingValues: PaddingValues) {
             MainScreen()
         }
         composable(Route.HOME) {
-            HomeScreen(navHostController, "Android")
+            HomeScreen()
+        }
+        composable(Route.PROJECT) {
+            ProjectScreen()
+        }
+        composable(Route.SQUARE) {
+            SquareScreen()
+        }
+        composable(Route.WECHAT) {
+            WechatScreen()
+        }
+        composable(Route.MINE) {
+            MineScreen()
         }
     }
 }

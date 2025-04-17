@@ -1,4 +1,4 @@
-package com.wangxingxing.wanandroidcompose.ui.home.state
+package com.wangxingxing.wanandroidcompose.ui.main.home.state
 
 import com.wangxingxing.wanandroidcompose.data.bean.User
 
