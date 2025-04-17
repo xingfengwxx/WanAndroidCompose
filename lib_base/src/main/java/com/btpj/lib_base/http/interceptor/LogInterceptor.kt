@@ -1,6 +1,6 @@
 package com.btpj.lib_base.http.interceptor
 
-import com.btpj.lib_base.utils.LogUtil
+import com.btpj.lib_base.utils.LogUtils
 import com.btpj.lib_base.BuildConfig
 import okhttp3.logging.HttpLoggingInterceptor
 
@@ -11,7 +11,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 val logInterceptor = HttpLoggingInterceptor(object : HttpLoggingInterceptor.Logger {
     override fun log(message: String) {
         // 使用自己的日志工具接管
-        LogUtil.d(message)
+        LogUtils.d(message)
 
     }
     // 注意要生成BuildConfig类，就必须在gradle中配置buildConfig为true

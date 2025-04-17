@@ -5,12 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.viewModelScope
 import com.btpj.lib_base.BaseApp
-import com.btpj.lib_base.utils.LogUtil
+import com.btpj.lib_base.utils.LogUtils
 import com.btpj.lib_base.utils.ToastUtil
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.conflate
-import kotlinx.coroutines.flow.distinctUntilChanged
-import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.launch
 import java.net.ConnectException
 import java.net.SocketTimeoutException
@@ -33,7 +29,7 @@ open class BaseActivity : ComponentActivity() {
         BaseApp.baseAppViewModel.apply {
             viewModelScope.launch {
                 exception.flowWithLifecycle(lifecycle).collect { e ->
-                    LogUtil.e("网络请求错误：${e.message}")
+                    LogUtils.e("网络请求错误：${e.message}")
                     when (e) {
                         is SocketTimeoutException -> ToastUtil.showShort(
                             this@BaseActivity,

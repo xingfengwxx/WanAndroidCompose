@@ -23,7 +23,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.btpj.lib_base.utils.LogUtil
+import com.btpj.lib_base.utils.LogUtils
 
 /**
  * 通用的顶部拦
@@ -87,7 +87,7 @@ fun TitleBarPreview() {
 //                Text(text = "菜单2")
 //            }
         ) {
-            LogUtil.d("点击返回")
+            LogUtils.d("点击返回")
         }
     }
 }

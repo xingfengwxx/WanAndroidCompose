@@ -1,13 +1,10 @@
 package com.btpj.lib_base.base
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.btpj.lib_base.BaseApp
 import com.btpj.lib_base.data.bean.ApiResponse
 import com.btpj.lib_base.data.bean.UiState
-import com.btpj.lib_base.utils.LogUtil
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
