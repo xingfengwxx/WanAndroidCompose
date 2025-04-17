@@ -11,7 +11,7 @@ object LogUtil {
 
     /** 是否是调试状态，即是否打印日志 */
     private var isDebug = true
-    private var tag = "BTPJ"
+    private var tag = "wxx"
 
     /**
      * 设置调试状态（以便实现是否打印日志，可以在application的onCreate函数里面初始化）
