@@ -27,9 +27,9 @@ import com.wangxingxing.wanandroidcompose.core.navigation.Route
  */
 @Composable
 fun SplashScreen(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onFinish: () -> Unit
 ) {
-    val navHostController = LocalNavController.current // 隐式获取 NavHostController
 
     // 加载 Lottie 动画
     val composition by rememberLottieComposition(
@@ -47,7 +47,8 @@ fun SplashScreen(
     // 监听动画是否结束
     LaunchedEffect(progress) {
         if (progress >= 1f) { // 动画播放结束
-            navHostController.navigate(Route.HOME) // 跳转到 HomeScreen
+            // 跳转到 MainScreen
+            onFinish()
         }
     }
 

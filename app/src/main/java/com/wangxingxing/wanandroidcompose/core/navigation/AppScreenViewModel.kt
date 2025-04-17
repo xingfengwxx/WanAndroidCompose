@@ -18,7 +18,7 @@ import javax.inject.Inject
 class AppScreenViewModel @Inject constructor() : BaseViewModel<Unit>() {
 
     private val _isFirstUse = MutableStateFlow(CacheManager.isFirstUse())
-    val isFirstUse: StateFlow<Boolean> = _isFirstUse.asStateFlow()
+    val isFirstUse: StateFlow<Boolean> = _isFirstUse
 
     fun emitFirstUse(isFirstUse: Boolean) {
         _isFirstUse.value = isFirstUse

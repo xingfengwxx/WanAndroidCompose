@@ -1,13 +1,16 @@
 package com.wangxingxing.wanandroidcompose.core.navigation
 
-import android.app.Activity
+import android.os.Build
 import androidx.activity.compose.LocalActivity
+import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.runtime.getValue
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavHostController
+import com.wangxingxing.wanandroidcompose.ext.decorFitsSystemWindows
+import com.wangxingxing.wanandroidcompose.ui.main.MainScreen
 import com.wangxingxing.wanandroidcompose.ui.splash.SplashScreen
+import com.wangxingxing.wanandroidcompose.ui.theme.WanAndroidComposeTheme
 
 /**
  * author : 王星星
@@ -20,7 +23,20 @@ fun AppScreen(
     appScreenViewModel: AppScreenViewModel = hiltViewModel()
 ) {
     val window = LocalActivity.current?.window
-    val showSplash = appScreenViewModel.isFirstUse.collectAsState()
+    val showSplash by appScreenViewModel.isFirstUse.collectAsState()
 
-    SplashScreen()
+    WanAndroidComposeTheme(isStatusBarTransparent = showSplash) {
+        if (showSplash) {
+            // 沉浸式状态栏
+            window?.decorFitsSystemWindows(false)
+            // 显示闪屏页
+            SplashScreen {
+                appScreenViewModel.emitFirstUse(false)
+            }
+        } else {
+            // 取消沉浸式状态栏
+            window?.decorFitsSystemWindows(true)
+            MainScreen()
+        }
+    }
 }

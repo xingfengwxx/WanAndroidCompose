@@ -14,6 +14,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.btpj.lib_base.ext.navigate
 import com.wangxingxing.wanandroidcompose.ui.home.HomeScreen
+import com.wangxingxing.wanandroidcompose.ui.main.MainScreen
 import com.wangxingxing.wanandroidcompose.ui.splash.SplashScreen
 
 /**
@@ -24,20 +25,17 @@ import com.wangxingxing.wanandroidcompose.ui.splash.SplashScreen
  */
 @Composable
 fun NavGraph(paddingValues: PaddingValues) {
-    val navHostController = rememberNavController() // 创建 NavHostController
-
-    CompositionLocalProvider(LocalNavController provides navHostController) {
-        NavHost(
-            navController = navHostController,
-            startDestination = Route.SPLASH,
-            modifier = Modifier.padding(paddingValues)
-        ) {
-            composable(Route.SPLASH) {
-                SplashScreen()
-            }
-            composable(Route.HOME) {
-                HomeScreen(navHostController, "Android")
-            }
+    val navHostController = LocalNavController.current // 隐式获取 NavHostController
+    NavHost(
+        navController = navHostController,
+        startDestination = Route.HOME,
+        modifier = Modifier.padding(paddingValues)
+    ) {
+        composable(Route.MAIN) {
+            MainScreen()
+        }
+        composable(Route.HOME) {
+            HomeScreen(navHostController, "Android")
         }
     }
 }
