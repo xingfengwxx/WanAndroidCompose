@@ -25,6 +25,15 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        create("release") {
+            storeFile = file("wanandroid.jks") // 密钥库文件路径
+            storePassword = "wxx666" // 密钥库密码
+            keyAlias = "wanandroid" // 密钥别名
+            keyPassword = "wxx666" // 密钥密码
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -77,5 +86,8 @@ dependencies {
     implementation(libs.hilt.android)
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.lottie.compose)
+
+    // material icons扩展库，会增apk大体积
+    implementation(libs.androidx.compose.material.iconsExtended)
 
 }
