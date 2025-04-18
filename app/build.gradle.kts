@@ -73,8 +73,30 @@ fun getCurrentTime(): String {
     return dateFormat.format(Date())
 }
 
+// 使用 强制版本（Force Version）
+configurations.all {
+    resolutionStrategy {
+        force(
+            "org.jetbrains.kotlin:kotlin-stdlib:2.1.10",
+            "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.1",
+            "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.1"
+        )
+    }
+}
 
 dependencies {
+
+    // 使用 Kotlin BOM
+    implementation(platform(libs.kotlin.bom))
+    // 使用协程 BOM
+    implementation(platform(libs.kotlinx.coroutines.bom))
+
+    // 使用依赖约束,统一指定版本
+//    constraints {
+//        implementation("org.jetbrains.kotlin:kotlin-stdlib:2.1.10")
+//        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.1")
+//        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.1")
+//    }
 
     implementation(project(":lib_base"))
 
@@ -89,5 +111,6 @@ dependencies {
 
     // material icons扩展库，会增apk大体积
     implementation(libs.androidx.compose.material.iconsExtended)
+
 
 }
