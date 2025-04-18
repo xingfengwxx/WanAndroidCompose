@@ -1,25 +1,20 @@
 package com.wangxingxing.wanandroidcompose.core.navigation
 
-import android.os.Build
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.Modifier
-import androidx.core.os.bundleOf
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
-import com.btpj.lib_base.ext.navigate
-import com.wangxingxing.wanandroidcompose.ui.main.home.HomeScreen
 import com.wangxingxing.wanandroidcompose.ui.main.MainScreen
+import com.wangxingxing.wanandroidcompose.ui.main.home.HomeScreen
 import com.wangxingxing.wanandroidcompose.ui.main.project.MineScreen
 import com.wangxingxing.wanandroidcompose.ui.main.project.ProjectScreen
 import com.wangxingxing.wanandroidcompose.ui.main.project.SquareScreen
 import com.wangxingxing.wanandroidcompose.ui.main.project.WechatScreen
-import com.wangxingxing.wanandroidcompose.ui.splash.SplashScreen
+import com.wangxingxing.wanandroidcompose.ui.search.SearchScreen
 
 /**
  * author : 王星星
@@ -39,7 +34,9 @@ fun NavGraph(paddingValues: PaddingValues) {
             MainScreen()
         }
         composable(Route.HOME) {
-            HomeScreen()
+            HomeScreen(onSearch = {
+                navHostController.navigate(Route.SEARCH)
+            })
         }
         composable(Route.PROJECT) {
             ProjectScreen()
@@ -52,6 +49,9 @@ fun NavGraph(paddingValues: PaddingValues) {
         }
         composable(Route.MINE) {
             MineScreen()
+        }
+        composable(Route.SEARCH) {
+            SearchScreen()
         }
     }
 }
@@ -77,7 +77,7 @@ object Route {
     const val ADD_ARTICLE = "add_article"
     const val INTEGRAL_RANK = "integral_rank"
     const val INTEGRAL_RANK_RECORD = "integral_rank_record"
-    const val Search = "search"
+    const val SEARCH = "search"
     const val SEARCH_RECORD = "search_record"
     const val SYSTEM_DETAILS = "system_details"
 }

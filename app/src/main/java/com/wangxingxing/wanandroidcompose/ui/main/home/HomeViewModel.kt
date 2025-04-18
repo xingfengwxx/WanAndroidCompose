@@ -1,12 +1,12 @@
 package com.wangxingxing.wanandroidcompose.ui.main.home
 
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.State
-import androidx.compose.runtime.mutableStateOf
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.wangxingxing.wanandroidcompose.ui.main.home.state.HomeUiState
-import kotlinx.coroutines.launch
+import com.wangxingxing.wanandroidcompose.data.bean.Banner
+import com.wangxingxing.wanandroidcompose.data.remote.DataRepository
+import com.wangxingxing.wanandroidcompose.ui.main.ArticleViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import javax.inject.Inject
 
 /**
  * author : 王星星
@@ -14,18 +14,18 @@ import kotlinx.coroutines.launch
  * email : 1099420259@qq.com
  * description :
  */
+@HiltViewModel
+class HomeViewModel @Inject constructor() : ArticleViewModel() {
+    private val _bannerList = MutableStateFlow<List<Banner>>(emptyList())
+    val bannerList = _bannerList.asStateFlow()
 
-// 状态管理示例
-class HomeViewModel : ViewModel() {
-    private val _uiState = mutableStateOf(HomeUiState())
-    val uiState: State<HomeUiState> = _uiState
+  /** 请求首页轮播图 */
+  fun fetchBanners() {
+    launch({
+      handleRequest(DataRepository.getBanner()) {
+        _bannerList.value = it.data
+      }
+    })
+  }
 
-    fun loadData() {
-        viewModelScope.launch {
-            // 调用 UseCase
-        }
-    }
-    fun updateUiState(uiState: HomeUiState) {
-        _uiState.value = uiState
-    }
 }
