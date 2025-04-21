@@ -47,7 +47,8 @@ fun NavGraph(paddingValues: PaddingValues) {
             )
         }
         composable(Route.PROJECT) {
-            ProjectScreen()
+            ProjectScreen {
+            }
         }
         composable(Route.SQUARE) {
             SquareScreen()

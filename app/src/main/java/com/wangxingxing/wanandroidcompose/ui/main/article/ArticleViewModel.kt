@@ -2,11 +2,13 @@ package com.wangxingxing.wanandroidcompose.ui.main.article
 
 import com.btpj.lib_base.base.BaseViewModel
 import com.wangxingxing.wanandroidcompose.App
+import com.wangxingxing.wanandroidcompose.Const
+import com.wangxingxing.wanandroidcompose.Const.ArticleType
+import com.wangxingxing.wanandroidcompose.Const.Config.PAGE_SIZE
 import com.wangxingxing.wanandroidcompose.data.bean.Article
 import com.wangxingxing.wanandroidcompose.data.bean.CollectData
 import com.wangxingxing.wanandroidcompose.data.remote.DataRepository
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
 /**
@@ -48,6 +50,66 @@ open class ArticleViewModel : BaseViewModel<List<Article>>() {
                     _unCollectEvent.value = article.id
                 }
                 successCallBack.invoke()
+            }
+        })
+    }
+
+    protected fun getArticlePageList(
+        articleType: ArticleType,
+        isRefresh: Boolean = true,
+        categoryId: Int? = null,
+        authorId: Int? = null,
+        searchKey: String? = null
+    ) {
+        emitUiState(isRefresh, articleList)
+        launch({
+            if (isRefresh) {
+                articleList.clear()
+                currentPage = 0
+            }
+
+            val response = when (articleType) {
+                ArticleType.LatestProject -> DataRepository.getNewProjectPageList(
+                    currentPage, PAGE_SIZE
+                )
+
+                ArticleType.Project -> DataRepository.getProjectPageList(
+                    currentPage, PAGE_SIZE, categoryId!!
+                )
+
+                ArticleType.Square -> DataRepository.getSquarePageList(
+                    currentPage, PAGE_SIZE
+                )
+
+                ArticleType.Ask -> DataRepository.getAskPageList(
+                    currentPage, PAGE_SIZE
+                )
+
+                ArticleType.Wechat -> DataRepository.getAuthorArticlePageList(
+                    authorId!!, currentPage, PAGE_SIZE
+                )
+
+                ArticleType.Collect -> DataRepository.getCollectArticlePageList(
+                    currentPage, PAGE_SIZE
+                )
+
+                ArticleType.Search -> DataRepository.getSearchDataByKey(
+                    currentPage, PAGE_SIZE, searchKey ?: ""
+                )
+
+                ArticleType.SystemDetails -> DataRepository.getArticlePageList(
+                    currentPage, PAGE_SIZE, categoryId!!
+                )
+            }
+
+            handleRequest(response) {
+                articleList.addAll(it.data.datas)
+                if (articleList.size >= it.data.total) {
+                    emitUiState(data = articleList, showLoadingMore = false, noMoreData = true)
+                    return@handleRequest
+                }
+                currentPage++
+                emitUiState(data = articleList, showLoadingMore = true)
             }
         })
     }
