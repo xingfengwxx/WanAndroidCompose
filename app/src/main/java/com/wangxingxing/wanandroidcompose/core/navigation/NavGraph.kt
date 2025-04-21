@@ -51,7 +51,17 @@ fun NavGraph(paddingValues: PaddingValues) {
             }
         }
         composable(Route.SQUARE) {
-            SquareScreen()
+            SquareScreen(
+                onStructureClick = { structure, position ->
+                    // TODO:  
+                },
+                onNavigationClick = {
+                    // TODO:  
+                },
+                onArticleClick = {
+                    // TODO:  
+                }
+            )
         }
         composable(Route.WECHAT) {
             WechatScreen()
