@@ -34,7 +34,7 @@ class App : BaseApp() {
         appViewModel = getAppViewModelProvider()[AppViewModel::class.java]
 
         // bugly初始化
-        Bugly.init(applicationContext, Const.BUGLY_APP_ID, false)
+        Bugly.init(applicationContext, Const.Config.BUGLY_APP_ID, false)
 
         initLog()
     }

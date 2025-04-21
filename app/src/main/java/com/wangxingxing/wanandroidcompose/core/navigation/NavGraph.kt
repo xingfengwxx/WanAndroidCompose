@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.Modifier
+import androidx.core.os.bundleOf
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -34,9 +35,16 @@ fun NavGraph(paddingValues: PaddingValues) {
             MainScreen()
         }
         composable(Route.HOME) {
-            HomeScreen(onSearch = {
-                navHostController.navigate(Route.SEARCH)
-            })
+            HomeScreen(
+                onSearch = {
+                    navHostController.navigate(Route.SEARCH)
+                },
+                onBannerClick = {
+
+                }, onArticleClick = {
+
+                }
+            )
         }
         composable(Route.PROJECT) {
             ProjectScreen()
