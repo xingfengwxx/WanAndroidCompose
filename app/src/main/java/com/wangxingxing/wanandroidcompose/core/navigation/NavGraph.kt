@@ -11,7 +11,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.wangxingxing.wanandroidcompose.ui.main.MainScreen
 import com.wangxingxing.wanandroidcompose.ui.main.home.HomeScreen
-import com.wangxingxing.wanandroidcompose.ui.main.project.MineScreen
+import com.wangxingxing.wanandroidcompose.ui.main.mine.MineScreen
 import com.wangxingxing.wanandroidcompose.ui.main.project.ProjectScreen
 import com.wangxingxing.wanandroidcompose.ui.main.project.SquareScreen
 import com.wangxingxing.wanandroidcompose.ui.main.wechat.WechatScreen
