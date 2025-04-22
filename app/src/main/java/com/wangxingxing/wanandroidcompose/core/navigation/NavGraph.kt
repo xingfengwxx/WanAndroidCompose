@@ -9,6 +9,7 @@ import androidx.core.os.bundleOf
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.wangxingxing.wanandroidcompose.ui.login.LoginScreen
 import com.wangxingxing.wanandroidcompose.ui.main.MainScreen
 import com.wangxingxing.wanandroidcompose.ui.main.home.HomeScreen
 import com.wangxingxing.wanandroidcompose.ui.main.mine.MineScreen
@@ -70,6 +71,9 @@ fun NavGraph(paddingValues: PaddingValues) {
         }
         composable(Route.MINE) {
             MineScreen()
+        }
+        composable(Route.LOGIN) {
+            LoginScreen()
         }
         composable(Route.SEARCH) {
             SearchScreen()

@@ -32,6 +32,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -44,6 +46,7 @@ import coil3.compose.AsyncImage
 import com.wangxingxing.wanandroidcompose.App
 import com.wangxingxing.wanandroidcompose.R
 import com.wangxingxing.wanandroidcompose.core.navigation.LocalNavController
+import com.wangxingxing.wanandroidcompose.core.navigation.Route
 import com.wangxingxing.wanandroidcompose.data.local.UserManager
 import com.wangxingxing.wanandroidcompose.ui.theme.Blue_4cd2f5
 import com.wangxingxing.wanandroidcompose.ui.theme.WanAndroidComposeTheme
@@ -63,6 +66,7 @@ fun MineScreen(
 
     val uiState by viewModel.uiState.collectAsState()
     val user by App.appViewModel.user.collectAsState()
+    val isLogin by remember { mutableStateOf(UserManager.isLogin()) }
 
     fun onRefresh() {
         viewModel.fetchPoints()
@@ -95,11 +99,11 @@ fun MineScreen(
                             .height(150.dp)
                             .padding(16.dp)
                             .clickable(enabled = !UserManager.isLogin()) {
-                                // TODO: 跳转登录页面
+                                navHostController.navigate(Route.LOGIN)
                             },
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        if (user?.icon.isNullOrEmpty()) {
+                        if (!isLogin) {
                             Icon(
                                 imageVector = Icons.Default.AccountCircle,
                                 contentDescription = null,
@@ -108,7 +112,7 @@ fun MineScreen(
                             )
                         } else {
                             AsyncImage(
-                                model = user?.icon ?: "",
+                                model = R.mipmap.ic_launcher_round,
                                 contentDescription = null,
                                 placeholder = painterResource(com.btpj.lib_base.R.drawable.ic_default_img),
                                 modifier = Modifier.size(72.dp)
