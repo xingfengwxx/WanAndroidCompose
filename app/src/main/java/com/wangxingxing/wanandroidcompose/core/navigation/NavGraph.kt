@@ -14,7 +14,7 @@ import com.wangxingxing.wanandroidcompose.ui.main.home.HomeScreen
 import com.wangxingxing.wanandroidcompose.ui.main.project.MineScreen
 import com.wangxingxing.wanandroidcompose.ui.main.project.ProjectScreen
 import com.wangxingxing.wanandroidcompose.ui.main.project.SquareScreen
-import com.wangxingxing.wanandroidcompose.ui.main.project.WechatScreen
+import com.wangxingxing.wanandroidcompose.ui.main.wechat.WechatScreen
 import com.wangxingxing.wanandroidcompose.ui.search.SearchScreen
 
 /**
@@ -64,7 +64,9 @@ fun NavGraph(paddingValues: PaddingValues) {
             )
         }
         composable(Route.WECHAT) {
-            WechatScreen()
+            WechatScreen {
+                // TODO: to web
+            }
         }
         composable(Route.MINE) {
             MineScreen()

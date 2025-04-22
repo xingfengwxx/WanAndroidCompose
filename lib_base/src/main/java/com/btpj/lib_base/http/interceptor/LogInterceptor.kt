@@ -11,7 +11,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 val logInterceptor = HttpLoggingInterceptor(object : HttpLoggingInterceptor.Logger {
     override fun log(message: String) {
         // 使用自己的日志工具接管
-        LogUtils.d(message)
+        LogUtils.d(tag = "Network", msg = message)
 
     }
     // 注意要生成BuildConfig类，就必须在gradle中配置buildConfig为true
