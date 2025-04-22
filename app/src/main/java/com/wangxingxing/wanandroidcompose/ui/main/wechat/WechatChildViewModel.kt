@@ -15,6 +15,6 @@ import javax.inject.Inject
 class WechatChildViewModel @Inject constructor() : ArticleViewModel() {
 
     fun fetchAuthorPageList(authorId: Int, isRefresh: Boolean = true) {
-        getArticlePageList(Const.ArticleType.Wechat, isRefresh, authorId)
+        getArticlePageList(articleType = Const.ArticleType.Wechat, isRefresh = isRefresh, authorId = authorId)
     }
 }

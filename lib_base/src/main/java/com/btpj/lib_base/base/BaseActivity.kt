@@ -29,7 +29,7 @@ open class BaseActivity : ComponentActivity() {
         BaseApp.baseAppViewModel.apply {
             viewModelScope.launch {
                 exception.flowWithLifecycle(lifecycle).collect { e ->
-                    LogUtils.e("网络请求错误：${e.message}")
+                    LogUtils.e("网络请求错误：${e.stackTraceToString()}")
                     when (e) {
                         is SocketTimeoutException -> ToastUtil.showShort(
                             this@BaseActivity,

@@ -15,6 +15,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Divider
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
@@ -100,7 +101,7 @@ fun MineScreen(
                     ) {
                         if (user?.icon.isNullOrEmpty()) {
                             Icon(
-                                imageVector = Icons.Default.Face,
+                                imageVector = Icons.Default.AccountCircle,
                                 contentDescription = null,
                                 tint = Blue_4cd2f5,
                                 modifier = Modifier.size(72.dp)
