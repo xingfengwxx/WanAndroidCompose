@@ -20,7 +20,7 @@ android {
         minSdk = 24
         targetSdk = 35
         versionCode = 100
-        versionName = "1.0.0"
+        versionName = generateVersionName(defaultConfig.versionCode!!)
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -60,15 +60,21 @@ android {
             val buildType = buildType.name
             val versionCode = defaultConfig.versionCode
             val versionName = defaultConfig.versionName
-            val currentTime = getCurrentTime()
             (this as com.android.build.gradle.internal.api.BaseVariantOutputImpl).outputFileName =
-                "WanAndroidCompose-${buildType}-v${versionCode}-${versionName}-${currentTime}.apk"
+                "WanAndroidCompose-${buildType}-v${versionCode}-${versionName}.apk"
         }
     }
 }
 
+fun generateVersionName(versionCode: Int): String {
+    val major = versionCode / 100
+    val minor = (versionCode % 100) / 10
+    val patch = versionCode % 10
+    return "$major.$minor.$patch-${getCurrentTime()}" // 动态生成版本名称
+}
+
 fun getCurrentTime(): String {
-    val dateFormat = SimpleDateFormat("yyyyMMdd_HHmmss")
+    val dateFormat = SimpleDateFormat("yyyyMMdd-HHmmss")
     dateFormat.timeZone = TimeZone.getTimeZone("GMT+8")
     return dateFormat.format(Date())
 }
