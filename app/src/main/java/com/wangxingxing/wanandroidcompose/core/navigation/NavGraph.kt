@@ -10,7 +10,9 @@ import androidx.core.os.bundleOf
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.btpj.lib_base.ext.navigate
 import com.wangxingxing.wanandroidcompose.Const
+import com.wangxingxing.wanandroidcompose.data.bean.Article
 import com.wangxingxing.wanandroidcompose.ui.login.LoginScreen
 import com.wangxingxing.wanandroidcompose.ui.main.MainScreen
 import com.wangxingxing.wanandroidcompose.ui.main.home.HomeScreen
@@ -45,14 +47,17 @@ fun NavGraph(paddingValues: PaddingValues) {
                     navHostController.navigate(Route.SEARCH)
                 },
                 onBannerClick = {
-
+                    navHostController.navigate(Route.WEB, bundleOf(
+                        Const.ParamKey.WEB_TYPE to Const.WebType.Url(name = it.title, link = it.url)
+                    ))
                 }, onArticleClick = {
-
+                    navToWeb(navHostController, it)
                 }
             )
         }
         composable(Route.PROJECT) {
             ProjectScreen {
+                navToWeb(navHostController, it)
             }
         }
         composable(Route.SQUARE) {
@@ -61,16 +66,16 @@ fun NavGraph(paddingValues: PaddingValues) {
                     // TODO:  
                 },
                 onNavigationClick = {
-                    // TODO:  
+                    navToWeb(navHostController, it)
                 },
                 onArticleClick = {
-                    // TODO:  
+                    navToWeb(navHostController, it)
                 }
             )
         }
         composable(Route.WECHAT) {
             WechatScreen {
-                // TODO: to web
+                navToWeb(navHostController, it)
             }
         }
         composable(Route.MINE) {
@@ -106,6 +111,16 @@ fun NavGraph(paddingValues: PaddingValues) {
 
 val LocalNavController = compositionLocalOf<NavHostController> {
     error("No NavHostController provided!") // 如果没有提供 NavHostController，抛出错误
+}
+
+private fun navToWeb(navHostController: NavHostController, it: Article) {
+    navHostController.navigate(
+        Route.WEB,
+        bundleOf(
+            Const.ParamKey.WEB_TYPE to Const.WebType.OnSiteArticle(it.id, it.link),
+            Const.ParamKey.COLLECTED_FLAG to if (it.collect) "1" else "0"
+        )
+    )
 }
 
 object Route {
