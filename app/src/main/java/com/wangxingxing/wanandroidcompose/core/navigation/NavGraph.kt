@@ -17,6 +17,7 @@ import com.wangxingxing.wanandroidcompose.ui.main.project.ProjectScreen
 import com.wangxingxing.wanandroidcompose.ui.main.project.SquareScreen
 import com.wangxingxing.wanandroidcompose.ui.main.wechat.WechatScreen
 import com.wangxingxing.wanandroidcompose.ui.search.SearchScreen
+import com.wangxingxing.wanandroidcompose.ui.setting.SettingScreen
 
 /**
  * author : 王星星
@@ -74,6 +75,9 @@ fun NavGraph(paddingValues: PaddingValues) {
         }
         composable(Route.LOGIN) {
             LoginScreen()
+        }
+        composable(Route.SETTING) {
+            SettingScreen()
         }
         composable(Route.SEARCH) {
             SearchScreen()

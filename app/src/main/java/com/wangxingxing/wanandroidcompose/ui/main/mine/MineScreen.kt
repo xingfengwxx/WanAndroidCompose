@@ -214,7 +214,7 @@ fun MineScreen(
                         },
                         title = stringResource(R.string.system_settings)
                     ) {
-                        // TODO: 设置页面
+                        navHostController.navigate(Route.SETTING)
                     }
                 }
             }

@@ -54,4 +54,20 @@
     <string name="history_ip_and_port">历史IP与端口(可选择)</string>
     <string name="title_activity_setting2">SettingActivity2</string>
     <string name="title_activity_web">WebActivity</string>
+
+    <string name="title_setting">设置</string>
+
+    <string name="txt_clear_cache">清除缓存</string>
+    <string name="txt_version">版本</string>
+    <string name="txt_author">作者</string>
+    <string name="txt_author_name">王星星</string>
+    <string name="txt_project_source_code">项目源码</string>
+    <string name="txt_logout">退出登录</string>
+    <string name="txt_confirm_clear_cache">确定清理缓存吗?</string>
+    <string name="txt_clear">清理</string>
+    <string name="txt_contact_author">联系作者</string>
+    <string name="txt_contact_way">QQ:1099420259 \n\n QQ邮箱：1099420259@qq.com</string>
+    <string name="txt_confirm_logout">确定退出登录吗？</string>
+
+    <string name="toast_latest_version">已是最新版本</string>
 </resources>
