@@ -68,6 +68,10 @@
     <string name="txt_contact_author">联系作者</string>
     <string name="txt_contact_way">QQ:1099420259 \n\n QQ邮箱：1099420259@qq.com</string>
     <string name="txt_confirm_logout">确定退出登录吗？</string>
+    <string name="txt_loading">加载中&#8230;</string>
+    <string name="txt_share">分享</string>
+    <string name="txt_share_to">分享到</string>
+    <string name="txt_open_with_browser">用浏览器打开</string>
 
     <string name="toast_latest_version">已是最新版本</string>
 </resources>

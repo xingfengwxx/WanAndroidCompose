@@ -1,5 +1,6 @@
 package com.wangxingxing.wanandroidcompose.core.navigation
 
+import android.os.Build
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
@@ -9,6 +10,7 @@ import androidx.core.os.bundleOf
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.wangxingxing.wanandroidcompose.Const
 import com.wangxingxing.wanandroidcompose.ui.login.LoginScreen
 import com.wangxingxing.wanandroidcompose.ui.main.MainScreen
 import com.wangxingxing.wanandroidcompose.ui.main.home.HomeScreen
@@ -18,6 +20,7 @@ import com.wangxingxing.wanandroidcompose.ui.main.project.SquareScreen
 import com.wangxingxing.wanandroidcompose.ui.main.wechat.WechatScreen
 import com.wangxingxing.wanandroidcompose.ui.search.SearchScreen
 import com.wangxingxing.wanandroidcompose.ui.setting.SettingScreen
+import com.wangxingxing.wanandroidcompose.ui.web.WebScreen
 
 /**
  * author : 王星星
@@ -81,6 +84,22 @@ fun NavGraph(paddingValues: PaddingValues) {
         }
         composable(Route.SEARCH) {
             SearchScreen()
+        }
+        composable(Route.WEB) {
+            it.arguments?.apply {
+                val webType = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    getParcelable(Const.ParamKey.WEB_TYPE, Const.WebType::class.java)
+                } else {
+                    getParcelable(Const.ParamKey.WEB_TYPE)
+                }
+                val collectedFlag = getString(Const.ParamKey.COLLECTED_FLAG)
+                webType?.let { type ->
+                    WebScreen(
+                        webType = type,
+                        collectedFlag = collectedFlag
+                    )
+                }
+            }
         }
     }
 }

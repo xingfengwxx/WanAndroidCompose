@@ -34,13 +34,18 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.core.os.bundleOf
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.blankj.utilcode.util.StringUtils
+import com.btpj.lib_base.ext.navigate
 import com.btpj.lib_base.http.RetrofitManager
 import com.btpj.lib_base.ui.widgets.CusAlertDialog
 import com.btpj.lib_base.ui.widgets.TitleBar
 import com.wangxingxing.wanandroidcompose.App
+import com.wangxingxing.wanandroidcompose.Const
 import com.wangxingxing.wanandroidcompose.R
 import com.wangxingxing.wanandroidcompose.core.navigation.LocalNavController
+import com.wangxingxing.wanandroidcompose.core.navigation.Route
 import com.wangxingxing.wanandroidcompose.data.local.UserManager
 
 /**
@@ -85,18 +90,26 @@ fun SettingScreen(viewModel: SettingViewModel = hiltViewModel()) {
         ) {
             viewModel.checkAppUpdate(isManual = true)
         }
-        
+
         SettingItem(
             label = stringResource(R.string.txt_author),
             value = stringResource(R.string.txt_author_name)
         ) {
             showIntroDialog = true
         }
-        
+
         SettingItem(
             label = stringResource(R.string.txt_project_source_code)
         ) {
-            // TODO: 跳转Web页面
+            navHostController.navigate(
+                Route.WEB,
+                bundleOf(
+                    Const.ParamKey.WEB_TYPE to Const.WebType.Url(
+                        name = StringUtils.getString(R.string.txt_project_source_code),
+                        link = Const.Config.PROJECT_SOURCE_CODE_URL
+                    )
+                )
+            )
         }
 
         if (showLogoutBtn == true) {

@@ -1,5 +1,8 @@
 package com.wangxingxing.wanandroidcompose
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
 /**
  * author : 王星星
  * date : 2025/4/18 9:36
@@ -12,6 +15,13 @@ object Const {
         const val BUGLY_APP_ID = "d60b18d191"
 
         const val PAGE_SIZE = 10
+
+        const val PROJECT_SOURCE_CODE_URL = "https://github.com/xingfengwxx/WanAndroidCompose"
+    }
+
+    object ParamKey {
+        const val WEB_TYPE = "webType"
+        const val COLLECTED_FLAG = "collectedFlag"
     }
 
     sealed class ArticleType {
@@ -23,5 +33,15 @@ object Const {
         object Collect : ArticleType()    // 我收藏的文章
         object Search : ArticleType()    // 搜索到的文章
         object SystemDetails : ArticleType()    // 搜索到的文章
+    }
+
+    @Parcelize
+    sealed class WebType(open var link: String) : Parcelable {
+        data class OnSiteArticle(val articleId: Int, override var link: String) : WebType(link)
+        data class OutSiteArticle(
+            val articleId: Int, val title: String, val author: String, override var link: String
+        ) : WebType(link)
+
+        data class Url(val id: Int? = null, val name: String, override var link: String) : WebType(link)
     }
 }
