@@ -72,6 +72,13 @@
     <string name="txt_share">分享</string>
     <string name="txt_share_to">分享到</string>
     <string name="txt_open_with_browser">用浏览器打开</string>
+    <string name="txt_anonymous_user">匿名用户</string>
 
     <string name="toast_latest_version">已是最新版本</string>
+
+    <!--  String数组  -->
+    <string-array name="collect_titles">
+        <item>文章</item>
+        <item>网址</item>
+    </string-array>
 </resources>

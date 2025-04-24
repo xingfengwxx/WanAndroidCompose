@@ -41,13 +41,18 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.os.bundleOf
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil3.compose.AsyncImage
+import com.blankj.utilcode.util.StringUtils
+import com.btpj.lib_base.ext.navigate
 import com.wangxingxing.wanandroidcompose.App
+import com.wangxingxing.wanandroidcompose.Const
 import com.wangxingxing.wanandroidcompose.R
 import com.wangxingxing.wanandroidcompose.core.navigation.LocalNavController
 import com.wangxingxing.wanandroidcompose.core.navigation.Route
 import com.wangxingxing.wanandroidcompose.data.local.UserManager
+import com.wangxingxing.wanandroidcompose.ext.navigateNeedLogin
 import com.wangxingxing.wanandroidcompose.ui.theme.Blue_4cd2f5
 import com.wangxingxing.wanandroidcompose.ui.theme.WanAndroidComposeTheme
 
@@ -170,7 +175,7 @@ fun MineScreen(
                         },
                         title = stringResource(R.string.my_collect)
                     ) {
-                        // TODO: 我的收藏
+                        navHostController.navigateNeedLogin(Route.MY_COLLECT)
                     }
 
                     ListItemWithIcon(
@@ -201,7 +206,15 @@ fun MineScreen(
                         },
                         title = stringResource(R.string.open_web)
                     ) {
-                        // TODO: 开源网站
+                        navHostController.navigate(
+                            Route.WEB,
+                            bundleOf(
+                                Const.ParamKey.WEB_TYPE to Const.WebType.Url(
+                                    name = StringUtils.getString(R.string.open_web),
+                                    link = Const.Config.URL_WAN_ANDROID
+                                )
+                            )
+                        )
                     }
 
                     ListItemWithIcon(

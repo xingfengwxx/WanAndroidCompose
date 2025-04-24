@@ -17,6 +17,7 @@ object Const {
         const val PAGE_SIZE = 10
 
         const val PROJECT_SOURCE_CODE_URL = "https://github.com/xingfengwxx/WanAndroidCompose"
+        const val URL_WAN_ANDROID = "https://www.wanandroid.com/"
     }
 
     object ParamKey {

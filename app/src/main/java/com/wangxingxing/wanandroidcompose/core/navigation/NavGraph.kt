@@ -13,6 +13,7 @@ import androidx.navigation.compose.composable
 import com.btpj.lib_base.ext.navigate
 import com.wangxingxing.wanandroidcompose.Const
 import com.wangxingxing.wanandroidcompose.data.bean.Article
+import com.wangxingxing.wanandroidcompose.ui.collect.CollectScreen
 import com.wangxingxing.wanandroidcompose.ui.login.LoginScreen
 import com.wangxingxing.wanandroidcompose.ui.main.MainScreen
 import com.wangxingxing.wanandroidcompose.ui.main.home.HomeScreen
@@ -105,6 +106,22 @@ fun NavGraph(paddingValues: PaddingValues) {
                     )
                 }
             }
+        }
+        composable(Route.MY_COLLECT) {
+            CollectScreen(
+                onCollectUrlClick = {
+                    navHostController.navigate(Route.WEB, bundleOf(
+                        Const.ParamKey.WEB_TYPE to Const.WebType.Url(it.id, it.name, it.link),
+                        Const.ParamKey.COLLECTED_FLAG to "1"
+                    ))
+                },
+                onArticleClick = {
+                    navHostController.navigate(Route.WEB, bundleOf(
+                        Const.ParamKey.WEB_TYPE to Const.WebType.OnSiteArticle(it.id, it.link),
+                        Const.ParamKey.COLLECTED_FLAG to "1"
+                    ))
+                }
+            )
         }
     }
 }
