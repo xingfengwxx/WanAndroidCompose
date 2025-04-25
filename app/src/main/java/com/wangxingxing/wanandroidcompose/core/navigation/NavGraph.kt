@@ -13,6 +13,7 @@ import androidx.navigation.compose.composable
 import com.btpj.lib_base.ext.navigate
 import com.wangxingxing.wanandroidcompose.Const
 import com.wangxingxing.wanandroidcompose.data.bean.Article
+import com.wangxingxing.wanandroidcompose.data.bean.Structure
 import com.wangxingxing.wanandroidcompose.ui.collect.CollectScreen
 import com.wangxingxing.wanandroidcompose.ui.integral.rank.IntegralRankScreen
 import com.wangxingxing.wanandroidcompose.ui.integral.record.IntegralRecordScreen
@@ -22,6 +23,7 @@ import com.wangxingxing.wanandroidcompose.ui.main.home.HomeScreen
 import com.wangxingxing.wanandroidcompose.ui.main.mine.MineScreen
 import com.wangxingxing.wanandroidcompose.ui.main.project.ProjectScreen
 import com.wangxingxing.wanandroidcompose.ui.main.project.SquareScreen
+import com.wangxingxing.wanandroidcompose.ui.main.square.system.details.SystemDetailsScreen
 import com.wangxingxing.wanandroidcompose.ui.main.wechat.WechatScreen
 import com.wangxingxing.wanandroidcompose.ui.search.SearchScreen
 import com.wangxingxing.wanandroidcompose.ui.setting.SettingScreen
@@ -67,8 +69,14 @@ fun NavGraph(paddingValues: PaddingValues) {
         }
         composable(Route.SQUARE) {
             SquareScreen(
-                onStructureClick = { structure, position ->
-                    // TODO:  
+                onStructureClick = { structure, pageIndex ->
+                    navHostController.navigate(
+                        Route.SYSTEM_DETAILS,
+                        bundleOf(
+                            Const.ParamKey.STRUCTURE to structure,
+                            Const.ParamKey.PAGE_INDEX to pageIndex
+                        )
+                    )
                 },
                 onNavigationClick = {
                     navToWeb(navHostController, it)
@@ -146,6 +154,21 @@ fun NavGraph(paddingValues: PaddingValues) {
         }
         composable(Route.ADD_ARTICLE) {
             AddArticleScreen()
+        }
+        composable(Route.SYSTEM_DETAILS) {
+            it.arguments?.apply {
+                val structure = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    getParcelable(Const.ParamKey.STRUCTURE, Structure::class.java)
+                } else {
+                    getParcelable(Const.ParamKey.STRUCTURE)
+                }
+                val pageIndex = getInt(Const.ParamKey.PAGE_INDEX)
+                structure?.let { structure ->
+                    SystemDetailsScreen(structure = structure, pageIndex = pageIndex) { article ->
+                        navToWeb(navHostController, article)
+                    }
+                }
+            }
         }
     }
 }

@@ -25,6 +25,8 @@ object Const {
         const val WEB_TYPE = "webType"
         const val COLLECTED_FLAG = "collectedFlag"
         const val URL = "url"
+        const val STRUCTURE = "structure"
+        const val PAGE_INDEX = "pageIndex"
     }
 
     sealed class ArticleType {
