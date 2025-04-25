@@ -75,6 +75,16 @@
     <string name="txt_anonymous_user">匿名用户</string>
     <string name="txt_integral_rule">积分规则</string>
     <string name="txt_integral">积分</string>
+    <string name="txt_del_article_confirm">确定删除该文章吗?</string>
+    <string name="txt_commiting">提交中&#8230;</string>
+    <string name="txt_tips">温馨提示</string>
+    <string name="txt_tips_share">
+ 1. 只要是任何好文都可以分享哈，并不一定要是原创！投递的文章会进入广场 tab;
+ 2. CSDN，掘金，简书等官方博客站点会直接通过，不需要审核;
+ 3. 其他个人站点会进入审核阶段，不要投递任何无效链接，测试的请尽快删除，否则可能会对你的账号产生一定影响;
+ 4. 目前处于测试阶段，如果你发现500等错误，可以向我提交日志，让我们一起使网站变得更好。
+ 5. 由于本站只有我一个人开发与维护，会尽力保证24小时内审核，当然有可能哪天太累，会延期，请保持佛系&#8230;
+    </string>
 
     <string name="toast_latest_version">已是最新版本</string>
 

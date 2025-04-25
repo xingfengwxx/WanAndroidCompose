@@ -188,7 +188,7 @@ fun MineScreen(
                         },
                         title = stringResource(R.string.my_share_article)
                     ) {
-                        // TODO: 我的分享文章
+                        navHostController.navigate(Route.SHARE_LIST)
                     }
 
                     Divider(

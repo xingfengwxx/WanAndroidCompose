@@ -25,6 +25,8 @@ import com.wangxingxing.wanandroidcompose.ui.main.project.SquareScreen
 import com.wangxingxing.wanandroidcompose.ui.main.wechat.WechatScreen
 import com.wangxingxing.wanandroidcompose.ui.search.SearchScreen
 import com.wangxingxing.wanandroidcompose.ui.setting.SettingScreen
+import com.wangxingxing.wanandroidcompose.ui.share.add.AddArticleScreen
+import com.wangxingxing.wanandroidcompose.ui.share.list.MyArticleScreen
 import com.wangxingxing.wanandroidcompose.ui.web.WebScreen
 
 /**
@@ -130,6 +132,20 @@ fun NavGraph(paddingValues: PaddingValues) {
         }
         composable(Route.INTEGRAL_RANK_RECORD) {
             IntegralRecordScreen()
+        }
+        composable(Route.SHARE_LIST) {
+            MyArticleScreen() {
+                navHostController.navigate(
+                    Route.WEB,
+                    bundleOf(
+                        Const.ParamKey.WEB_TYPE to Const.WebType.OnSiteArticle(it.id, it.link),
+                        Const.ParamKey.COLLECTED_FLAG to "1"
+                    )
+                )
+            }
+        }
+        composable(Route.ADD_ARTICLE) {
+            AddArticleScreen()
         }
     }
 }
