@@ -128,12 +128,12 @@ fun MineScreen(
                             modifier = Modifier.padding(horizontal = 10.dp)
                         ) {
                             Text(
-                                text = user?.nickname ?: "点击登录",
+                                text = user?.nickname ?: stringResource(R.string.txt_click_login),
                                 color = MaterialTheme.colorScheme.onPrimary
                             )
                             Text(
                                 modifier = Modifier.padding(top = 10.dp),
-                                text = "id: ${uiState.data?.userId ?: "-"}  排名：${uiState.data?.rank ?: "-"}",
+                                text = "id: ${uiState.data?.userId ?: "-"}  ${stringResource(R.string.txt_rank)}：${uiState.data?.rank ?: "-"}",
                                 color = MaterialTheme.colorScheme.onPrimary,
                                 fontSize = 14.sp
                             )

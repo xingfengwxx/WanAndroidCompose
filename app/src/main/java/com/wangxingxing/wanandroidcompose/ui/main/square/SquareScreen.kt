@@ -37,9 +37,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.blankj.utilcode.util.StringUtils
 import com.btpj.lib_base.ext.toHtml
 import com.btpj.lib_base.ui.widgets.TitleBar
 import com.btpj.lib_base.utils.CommonUtil
+import com.wangxingxing.wanandroidcompose.R
+import com.wangxingxing.wanandroidcompose.core.navigation.LocalNavController
+import com.wangxingxing.wanandroidcompose.core.navigation.Route
 import com.wangxingxing.wanandroidcompose.data.bean.Article
 import com.wangxingxing.wanandroidcompose.data.bean.Structure
 import com.wangxingxing.wanandroidcompose.ui.main.square.ask.AskScreen
@@ -61,9 +65,9 @@ fun SquareScreen(
     onNavigationClick: ((Article) -> Unit)? = null,
     onArticleClick: (Article) -> Unit
 ) {
-    val titleList = remember {
-        listOf("广场", "每日一问", "体系", "导航")
-    }
+    val navHostController = LocalNavController.current
+
+    val titleList = remember { StringUtils.getStringArray(R.array.square_titles) }
 
     val pagerState = rememberPagerState { titleList.size }
     val coroutineScope = rememberCoroutineScope()
@@ -79,7 +83,7 @@ fun SquareScreen(
                         contentDescription = null,
                         tint = MaterialTheme.colorScheme.onPrimary,
                         modifier = Modifier.clickable {
-                            // TODO: 分享文章
+                            navHostController.navigate(Route.ADD_ARTICLE)
                         }
                     )
                 }
