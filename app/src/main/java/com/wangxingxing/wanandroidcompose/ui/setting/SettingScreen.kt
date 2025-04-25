@@ -15,7 +15,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.material3.Button
-import androidx.compose.material3.Divider
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LocalContentColor
@@ -106,7 +105,7 @@ fun SettingScreen(viewModel: SettingViewModel = hiltViewModel()) {
                 bundleOf(
                     Const.ParamKey.WEB_TYPE to Const.WebType.Url(
                         name = StringUtils.getString(R.string.txt_project_source_code),
-                        link = Const.Config.PROJECT_SOURCE_CODE_URL
+                        link = Const.Config.URL_PROJECT_SOURCE_CODE
                     )
                 )
             )

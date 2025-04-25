@@ -73,6 +73,8 @@
     <string name="txt_share_to">分享到</string>
     <string name="txt_open_with_browser">用浏览器打开</string>
     <string name="txt_anonymous_user">匿名用户</string>
+    <string name="txt_integral_rule">积分规则</string>
+    <string name="txt_integral">积分</string>
 
     <string name="toast_latest_version">已是最新版本</string>
 

@@ -14,6 +14,8 @@ import com.btpj.lib_base.ext.navigate
 import com.wangxingxing.wanandroidcompose.Const
 import com.wangxingxing.wanandroidcompose.data.bean.Article
 import com.wangxingxing.wanandroidcompose.ui.collect.CollectScreen
+import com.wangxingxing.wanandroidcompose.ui.integral.rank.IntegralRankScreen
+import com.wangxingxing.wanandroidcompose.ui.integral.record.IntegralRecordScreen
 import com.wangxingxing.wanandroidcompose.ui.login.LoginScreen
 import com.wangxingxing.wanandroidcompose.ui.main.MainScreen
 import com.wangxingxing.wanandroidcompose.ui.main.home.HomeScreen
@@ -122,6 +124,12 @@ fun NavGraph(paddingValues: PaddingValues) {
                     ))
                 }
             )
+        }
+        composable(Route.INTEGRAL_RANK) {
+            IntegralRankScreen()
+        }
+        composable(Route.INTEGRAL_RANK_RECORD) {
+            IntegralRecordScreen()
         }
     }
 }

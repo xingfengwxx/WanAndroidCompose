@@ -162,7 +162,7 @@ fun MineScreen(
                             )
                         }
                     ) {
-                        // TODO: 跳转积分排行
+                        navHostController.navigate(Route.INTEGRAL_RANK)
                     }
 
                     ListItemWithIcon(

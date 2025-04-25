@@ -16,13 +16,15 @@ object Const {
 
         const val PAGE_SIZE = 10
 
-        const val PROJECT_SOURCE_CODE_URL = "https://github.com/xingfengwxx/WanAndroidCompose"
+        const val URL_PROJECT_SOURCE_CODE = "https://github.com/xingfengwxx/WanAndroidCompose"
         const val URL_WAN_ANDROID = "https://www.wanandroid.com/"
+        const val URL_INTEGRAL_HELP = "https://www.wanandroid.com/blog/show/2653"
     }
 
     object ParamKey {
         const val WEB_TYPE = "webType"
         const val COLLECTED_FLAG = "collectedFlag"
+        const val URL = "url"
     }
 
     sealed class ArticleType {
