@@ -27,6 +27,7 @@ object Const {
         const val URL = "url"
         const val STRUCTURE = "structure"
         const val PAGE_INDEX = "pageIndex"
+        const val SEARCH_KEY = "searchKey"
     }
 
     sealed class ArticleType {

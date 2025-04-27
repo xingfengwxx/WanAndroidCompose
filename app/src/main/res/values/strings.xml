@@ -87,6 +87,8 @@
     </string>
     <string name="txt_click_login">点击登录</string>
     <string name="txt_rank">排名</string>
+    <string name="txt_hot_search">热门搜索</string>
+    <string name="txt_history_search">历史搜索</string>
 
     <string name="toast_latest_version">已是最新版本</string>
 

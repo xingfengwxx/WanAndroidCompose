@@ -26,6 +26,7 @@ import com.wangxingxing.wanandroidcompose.ui.main.project.SquareScreen
 import com.wangxingxing.wanandroidcompose.ui.main.square.system.details.SystemDetailsScreen
 import com.wangxingxing.wanandroidcompose.ui.main.wechat.WechatScreen
 import com.wangxingxing.wanandroidcompose.ui.search.SearchScreen
+import com.wangxingxing.wanandroidcompose.ui.search.result.SearchResultScreen
 import com.wangxingxing.wanandroidcompose.ui.setting.SettingScreen
 import com.wangxingxing.wanandroidcompose.ui.share.add.AddArticleScreen
 import com.wangxingxing.wanandroidcompose.ui.share.list.MyArticleScreen
@@ -101,7 +102,19 @@ fun NavGraph(paddingValues: PaddingValues) {
             SettingScreen()
         }
         composable(Route.SEARCH) {
-            SearchScreen()
+            SearchScreen() {
+                navHostController.navigate(
+                    Route.SEARCH_RECORD,
+                    bundleOf(Const.ParamKey.SEARCH_KEY to it)
+                )
+            }
+        }
+        composable(Route.SEARCH_RECORD) {
+            it.arguments?.getString(Const.ParamKey.SEARCH_KEY)?.let { searchKey ->
+                SearchResultScreen(searchKey) {
+                    navToWeb(navHostController, it)
+                }
+            }
         }
         composable(Route.WEB) {
             it.arguments?.apply {

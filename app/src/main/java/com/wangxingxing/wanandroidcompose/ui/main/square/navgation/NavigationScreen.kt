@@ -98,7 +98,7 @@ fun NavigationItem(
                     Text(
                         modifier = Modifier
                             .padding(4.dp)
-                            .clickable {  }
+                            .clickable { onNavigationClick.invoke(article) }
                             .background(LocalContentColor.current.copy(0.1f), shape = RoundedCornerShape(8.dp))
                             .padding(vertical = 6.dp, horizontal = 10.dp),
                         text = article.title.toHtml().toString(),
