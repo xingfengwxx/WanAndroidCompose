@@ -1,6 +1,8 @@
 package com.wangxingxing.wanandroidcompose.core.navigation
 
 import android.os.Build
+import androidx.compose.animation.EnterTransition
+import androidx.compose.animation.ExitTransition
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
@@ -44,7 +46,10 @@ fun NavGraph(paddingValues: PaddingValues) {
     NavHost(
         navController = navHostController,
         startDestination = Route.HOME,
-        modifier = Modifier.padding(paddingValues)
+        modifier = Modifier.padding(paddingValues),
+        // 禁用导航动画
+        enterTransition = { EnterTransition.None },
+        exitTransition = { ExitTransition.None },
     ) {
         composable(Route.MAIN) {
             MainScreen()
