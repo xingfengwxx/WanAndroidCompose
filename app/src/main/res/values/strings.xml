@@ -89,8 +89,12 @@
     <string name="txt_rank">排名</string>
     <string name="txt_hot_search">热门搜索</string>
     <string name="txt_history_search">历史搜索</string>
+    <string name="txt_register_loading">注册中&#8230;</string>
+    <string name="txt_login_loading">登录中&#8230;</string>
 
     <string name="toast_latest_version">已是最新版本</string>
+    <string name="toast_password_length_limit">密码长度不能小于6位</string>
+    <string name="toast_password_disagree">两次输入的密码不一致</string>
 
     <!--  String数组  -->
     <string-array name="collect_titles">

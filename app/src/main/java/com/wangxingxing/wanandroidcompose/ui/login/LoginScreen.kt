@@ -36,6 +36,7 @@ import com.btpj.lib_base.ui.widgets.LoadingDialog
 import com.btpj.lib_base.ui.widgets.TitleBar
 import com.wangxingxing.wanandroidcompose.R
 import com.wangxingxing.wanandroidcompose.core.navigation.LocalNavController
+import com.wangxingxing.wanandroidcompose.core.navigation.Route
 import com.wangxingxing.wanandroidcompose.data.local.UserManager
 
 /**
@@ -60,7 +61,7 @@ fun LoginScreen(
     }
 
     if (showLoadingDialog) {
-        LoadingDialog(loadingText = "登录中...") { showLoadingDialog = false }
+        LoadingDialog(loadingText = stringResource(R.string.txt_login_loading)) { showLoadingDialog = false }
     }
 
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
@@ -139,7 +140,7 @@ fun LoginScreen(
                 text = stringResource(R.string.register),
                 modifier = Modifier
                     .clickable {
-                        // TODO: 注册
+                        navHostController.navigate(Route.REGISTER)
                     },
                 color = MaterialTheme.colorScheme.primary
             )

@@ -20,6 +20,7 @@ import com.wangxingxing.wanandroidcompose.ui.collect.CollectScreen
 import com.wangxingxing.wanandroidcompose.ui.integral.rank.IntegralRankScreen
 import com.wangxingxing.wanandroidcompose.ui.integral.record.IntegralRecordScreen
 import com.wangxingxing.wanandroidcompose.ui.login.LoginScreen
+import com.wangxingxing.wanandroidcompose.ui.login.register.RegisterScreen
 import com.wangxingxing.wanandroidcompose.ui.main.MainScreen
 import com.wangxingxing.wanandroidcompose.ui.main.home.HomeScreen
 import com.wangxingxing.wanandroidcompose.ui.main.mine.MineScreen
@@ -102,6 +103,9 @@ fun NavGraph(paddingValues: PaddingValues) {
         }
         composable(Route.LOGIN) {
             LoginScreen()
+        }
+        composable(Route.REGISTER) {
+            RegisterScreen()
         }
         composable(Route.SETTING) {
             SettingScreen()
