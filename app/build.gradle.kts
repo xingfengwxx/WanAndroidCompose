@@ -18,7 +18,7 @@ android {
     defaultConfig {
         applicationId = "com.wangxingxing.wanandroidcompose"
         minSdk = 24
-        targetSdk = 35
+        targetSdk = 34
         versionCode = 100
         versionName = generateVersionName(defaultConfig.versionCode!!)
 
